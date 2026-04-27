@@ -6,6 +6,7 @@ import Favoritos from "./Favoritos";
 import Original from "./Original";
 import Informativa from "./Informativa";
 import Usuario from "./Usuarios";
+import Detalle from "./Detalle";
 
 function App() {
   return (
@@ -18,13 +19,16 @@ function App() {
         <Link to="/usuario"><img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" /><p>Usuario</p></Link>   
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/favoritos" element={<Favoritos />} />
-        <Route path="/original" element={<Original />} />
-        <Route path="/informativa" element={<Informativa />} />
-        <Route path="/usuario" element={<Usuario />} />
-      </Routes>
+      <div style={{ paddingBottom: "80px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favoritos" element={<Favoritos />} />
+          <Route path="/original" element={<Original />} />
+          <Route path="/informativa" element={<Informativa />} />
+          <Route path="/usuario" element={<Usuario />} />
+          <Route path="/detalle/:id" element={<Detalle />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

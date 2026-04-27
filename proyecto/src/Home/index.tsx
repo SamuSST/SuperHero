@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 function Home() {
   const [heroes, setHeroes] = useState<any[]>([]);
@@ -7,15 +8,12 @@ function Home() {
   const [filtro, setFiltro] = useState("");
   const navigate = useNavigate();
 
-  const TOKEN = "TU_TOKEN";
-  const URL = `https://www.superheroapi.com/api.php/${TOKEN}/search/batman`;
+  const URL = "https://akabab.github.io/superhero-api/api/all.json";
 
   useEffect(() => {
     fetch(URL)
-      .then(r => r.json())
-      .then(d => {
-        if (d.results) setHeroes(d.results);
-      });
+      .then(res => res.json())
+      .then(data => setHeroes(data));
   }, []);
 
   const filtrados = heroes.filter(h =>
@@ -29,7 +27,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="home">
       <h1>Superheroes</h1>
 
       <input
@@ -44,27 +42,27 @@ function Home() {
         <option value="bad">Malos</option>
       </select>
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filtrados.map(hero => (
-          <div
-            key={hero.id}
-            style={{
-              border: "1px solid #ccc",
-              margin: 10,
-              padding: 10,
-              width: 150
-            }}
-          >
-            <img src={hero.image.url} width="100%" />
+      <div className="grid">
+        {filtrados.slice(0, 30).map(hero => (
+          <div key={hero.id} className="card">
+            <img src={hero.images.sm} />
+
             <h4>{hero.name}</h4>
 
-            <button onClick={() => agregarFavorito(hero)}>
-              Favorito
-            </button>
+            <div className="actions">
+              <button
+                className="btn-fav"
+                onClick={() => agregarFavorito(hero)}
+              >
+                <svg viewBox="0 0 24 24">
+                  <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path>
+                </svg>
+              </button>
 
-            <button onClick={() => navigate(`/detalle/${hero.id}`)}>
-              Ver
-            </button>
+              <button onClick={() => navigate(`/detalle/${hero.id}`)}>
+                Ver
+              </button>
+            </div>
           </div>
         ))}
       </div>

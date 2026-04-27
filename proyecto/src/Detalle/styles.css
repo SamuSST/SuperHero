@@ -1,0 +1,36 @@
+.detalle {
+  padding: 15px;
+  padding-bottom: 90px;
+  color: white;
+  background: #0f0f0f;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.img {
+  width: 90%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.info {
+  margin-top: 15px;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.stats {
+  margin-top: 15px;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.loading {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}

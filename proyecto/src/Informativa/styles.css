@@ -1,0 +1,121 @@
+/* Contenedor principal que aísla la sección */
+.info-app-container {
+  padding: 60px 20px;
+  background-color: #121212;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.info-app-title {
+  color: #ffffff;
+  margin-bottom: 50px;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.info-app-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Tarjeta con el diseño solicitado */
+.info-app-card {
+  width: 240px;
+  height: 320px;
+  background: #242424;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.info-app-icon {
+  font-size: 60px;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.info-app-textBox {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: 0.3s ease-in-out;
+  z-index: 2;
+  padding: 20px;
+  text-align: center;
+}
+
+.info-app-text.info-app-head {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffcc00; /* Color distintivo */
+  margin: 0;
+}
+
+.info-app-span {
+  font-size: 13px;
+  color: #888;
+  font-weight: 500;
+}
+
+.info-app-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.info-app-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.info-app-list li {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.info-app-list li::before {
+  content: "▹ ";
+  color: #ffcc00;
+}
+
+/* Efectos de interacción */
+.info-app-card:hover {
+  transform: scale(1.05) rotate(-1deg);
+  border-color: #ffcc00;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.info-app-card:hover > .info-app-icon {
+  transform: scale(1.5);
+  filter: blur(8px);
+  opacity: 0.1;
+}
+
+.info-app-card:hover > .info-app-textBox {
+  opacity: 1;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 550px) {
+  .info-app-grid {
+    flex-direction: column;
+  }
+}
